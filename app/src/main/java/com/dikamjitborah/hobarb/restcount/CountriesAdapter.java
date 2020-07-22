@@ -11,8 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou;
-import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYouListener;
+
 
 import java.util.List;
 
@@ -22,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.ViewHolder> {
     List<Todo> countries_data;
     Context context;
-    Activity activity;
+
 
     CountriesAdapter(List<Todo> countries_data) {
         this.countries_data = countries_data;
@@ -34,7 +33,7 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.View
     {
 
         context = parent.getContext();
-        activity = (Activity) context;
+        //activity = (Activity) context;
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext()) ;
         View list_item = layoutInflater.inflate(R.layout.recycler_items_layout, parent, false);
         ViewHolder viewHolder = new ViewHolder(list_item);
@@ -51,9 +50,19 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.View
         holder.subregion.setText(country.getSubregion());
         holder.population.setText(country.getPopulation() + "");
         holder.borders.setText(country.getBorders() + "");
-        holder.language.setText(country.getLanguages().indexOf(0) + "");
+
+        String languages = "";
+        List<Todo.LanguagesBean> lang = country.getLanguages();
+        for (Todo.LanguagesBean languagesBean: lang)
+        {
+            languages = languagesBean.getName();
+            holder.language.append(languages + " ");
+        }
+
 
         Glide.with(context).load(country.getFlag()).placeholder(R.drawable.placeholder).into(holder.flag);
+
+      //  Glide.with(context).load(country.getFlag()).placeholder(R.drawable.placeholder).into(holder.flag);
 
         //GlideToVectorYou.justLoadImage((Activity) context, Uri.parse(country.getFlag()), holder.flag);
        /* GlideToVectorYou
