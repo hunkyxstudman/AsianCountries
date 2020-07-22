@@ -13,4 +13,8 @@ public interface ApiInterface {
     @GET("/rest/v2/regionalbloc/pa")
     Call<List<Todo>> getPA();
 
+    @GET("/rest/v2/regionalbloc/SAARC")
+    Call<List<Todo>> getSAARC();
+
+
 }

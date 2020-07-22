@@ -22,4 +22,9 @@
         android:text="TextView"
         tools:layout_editor_absoluteX="127dp"
         tools:layout_editor_absoluteY="265dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
