@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    android:elevation="7dp"
+    android:padding="7dp"
+    android:background="@color/colorAccent"
+    style="@style/CardStyles">
 
      <TextView
-         android:layout_gravity="center"
+         android:layout_gravity="right"
                 android:layout_centerInParent="true"
                 android:id="@+id/name_country"
                 android:text="Name"
@@ -14,6 +19,7 @@
 
             </TextView>
 <LinearLayout
+
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">

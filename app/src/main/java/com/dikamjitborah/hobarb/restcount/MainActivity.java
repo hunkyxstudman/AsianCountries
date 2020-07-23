@@ -11,13 +11,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     Button button;
-    TextView textView;
+
     ApiInterface apiInterface;
 
     RecyclerView recyclerView;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         button = findViewById(R.id.button);
-        textView = findViewById(R.id.textView);
+
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Todo>> call, Throwable t) {
-                textView.setText(t.getMessage());
+                Toast.makeText(MainActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
